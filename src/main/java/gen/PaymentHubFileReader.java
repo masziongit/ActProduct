@@ -18,7 +18,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 
@@ -99,7 +102,12 @@ public class PaymentHubFileReader {
             // load the mapping file
             logFactory.load(prop.getProperty("mapping.file"));
 
-            BeanWriter logOut = logFactory.createWriter("sqlLog", new FileWriter ("report.csv"));
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_hhmmss");
+            String strDate = dateFormat.format(new Date());
+            File logf = new File ("report/report"+strDate+".csv");
+            BeanWriter logOut = logFactory.createWriter("sqlLog", logf);
+
+           int updateNum = 0;
 
             while (rs.next()) {
 
@@ -120,15 +128,21 @@ public class PaymentHubFileReader {
                             + updateData.getAccountProductCode()+" Successfully Updated");
 
                     writeLogCsv(logOut,updateData,rs);
-
+                    updateNum++;
                 }
             }
 
             updateStmt.executeBatch();
-            logger.info("Successfully Updated");
-            logger.info("Write LogDB to csv");
             logOut.flush();
             logOut.close();
+
+            if (updateNum < 1){
+                logger.info("No Data Updated");
+                logf.delete();
+            }else {
+                logger.info("Successfully Updated");
+                logger.info("Write LogDB to "+logf.getName());
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();

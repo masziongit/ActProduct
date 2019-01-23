@@ -19,10 +19,6 @@ public class Main {
 
             if (args.length == 2){
 
-                if (args[1].length() == 15 && args[1].matches("OACSYN[0-9]{6}(\\.)R01")){
-                    throw new Exception("File Name is not Proper as per Format.");
-                }
-
                 String config = System.getProperty("config.file");
                 if (StringUtils.isEmpty(config)) {
                     config = "config.properties";
@@ -30,6 +26,10 @@ public class Main {
 
                 Properties prop = new Properties();
                 prop.load(new FileInputStream(config));
+
+                if (args[1].length() == 15 && args[1].matches(prop.getProperty("file.format"))){
+                    throw new Exception("File Name is not Proper as per Format.");
+                }
 
                 // create a StreamFactory
                 StreamFactory factory = StreamFactory.newInstance();
@@ -39,8 +39,8 @@ public class Main {
                 DbManagement db = new DbManagement(prop);
                 Connection con = db.connection();
 
-                logger.info(args[0].toUpperCase()+" file "+args[1]);
-                switch (args[0]){
+                logger.info(args[0].toUpperCase()+" File "+args[1]);
+                switch (args[0].toLowerCase()){
                     case "write" :
                         new PaymentHubFileWriter(prop,factory,con,args[1]);
                         break;

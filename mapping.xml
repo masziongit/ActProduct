@@ -22,7 +22,7 @@
             <field name="additional6" position="131" length="20" trim="true"/>
         </record>
         <record name="trailer" minOccurs="1" maxOccurs="1" class="field.PaymentHubFooter" ridLength="9">
-            <field name="recordIndentifer" position="0" length="1" trim="true"/>
+            <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="T"/>
             <field name="processDate" position="1" length="8" trim="true" format="yyyyMMdd"/>
         </record>
     </stream>

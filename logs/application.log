@@ -38823,3 +38823,383 @@
 2019-01-22 17:42:37 INFO  PaymentHubFileReader:129 - Write LogDB to csv
 2019-01-22 17:42:37 INFO  PaymentHubFileReader:139 - Remove local file
 2019-01-22 17:42:37 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:00:06 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:00:06 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:00:06 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:00:06 INFO  Main:42 - READ file OACSYN190121.R01
+2019-01-23 16:00:06 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:00:07 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:00:08 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:00:08 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:00:09 INFO  PaymentHubFileReader:128 - Successfully Updated
+2019-01-23 16:00:09 INFO  PaymentHubFileReader:129 - Write LogDB to csv
+2019-01-23 16:00:09 INFO  PaymentHubFileReader:139 - Remove local file
+2019-01-23 16:00:09 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:05:23 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:05:23 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:05:24 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:05:24 INFO  Main:42 - READ file OACSYN190121.R01
+2019-01-23 16:05:24 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:05:24 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:05:26 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:05:26 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:05:26 INFO  PaymentHubFileReader:128 - Successfully Updated
+2019-01-23 16:05:26 INFO  PaymentHubFileReader:129 - Write LogDB to csv
+2019-01-23 16:05:26 INFO  PaymentHubFileReader:139 - Remove local file
+2019-01-23 16:05:26 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:06:52 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:06:52 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:06:53 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:06:53 INFO  Main:42 - READ file OACSYN190121.R01
+2019-01-23 16:06:53 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:06:53 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:06:54 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:06:54 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:06:55 INFO  PaymentHubFileReader:128 - Successfully Updated
+2019-01-23 16:06:55 INFO  PaymentHubFileReader:129 - Write LogDB to csv
+2019-01-23 16:06:55 INFO  PaymentHubFileReader:139 - Remove local file
+2019-01-23 16:06:55 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:07:04 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:07:04 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:07:04 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:07:04 INFO  Main:42 - READ File OACSYN190121.R01
+2019-01-23 16:07:04 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:07:05 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:07:06 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:07:06 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:07:06 INFO  PaymentHubFileReader:128 - Successfully Updated
+2019-01-23 16:07:06 INFO  PaymentHubFileReader:129 - Write LogDB to csv
+2019-01-23 16:07:06 INFO  PaymentHubFileReader:139 - Remove local file
+2019-01-23 16:07:06 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:09:13 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:09:13 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:09:13 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:09:13 INFO  Main:42 - READ File OACSYN190121.R01
+2019-01-23 16:09:13 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:09:14 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:09:15 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:09:15 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:09:15 INFO  PaymentHubFileReader:128 - Successfully Updated
+2019-01-23 16:09:15 INFO  PaymentHubFileReader:129 - Write LogDB to csv
+2019-01-23 16:09:15 INFO  PaymentHubFileReader:139 - Remove local file
+2019-01-23 16:09:15 INFO  PaymentHubFileReader:141 - Connection close
+2019-01-23 16:09:24 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:09:24 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:09:25 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:09:25 INFO  Main:42 - WRITE File OACSYN190121.R01
+2019-01-23 16:09:25 INFO  PaymentHubFileWriter:87 - Connection close
+2019-01-23 16:09:25 ERROR Main:57 - Bean identification failed: no record or group mapping for bean class 'class field.PaymentHub' at the current position
+2019-01-23 16:09:46 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:09:47 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:09:47 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:09:47 INFO  Main:42 - WRITE File OACSYN190121.R01
+2019-01-23 16:09:47 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:09:48 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:09:49 INFO  FileSFTP:27 - UploadFile from D:\project\gs-gradle\PaymentHub to /upload/ Complete!
+2019-01-23 16:09:49 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:09:49 INFO  PaymentHubFileWriter:72 - Write file complete
+2019-01-23 16:09:49 INFO  PaymentHubFileWriter:78 - Remove local file
+2019-01-23 16:09:49 INFO  PaymentHubFileWriter:87 - Connection close
+2019-01-23 16:15:34 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:15:34 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:15:35 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:15:35 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:15:35 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:15:35 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:15:37 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:15:37 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:15:37 INFO  PaymentHubFileReader:140 - Remove local file
+2019-01-23 16:15:37 INFO  PaymentHubFileReader:142 - Connection close
+2019-01-23 16:15:37 ERROR Main:57 - report\reportWed Jan 23 16:15:37 ICT 2019.csv (The filename, directory name, or volume label syntax is incorrect)
+2019-01-23 16:17:08 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:17:08 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:17:08 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:17:08 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:17:08 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:17:09 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:17:10 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:17:10 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:17:10 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:17:10 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:17:10 ERROR Main:57 - report\report-2019-17-23 04:17:10.csv (The filename, directory name, or volume label syntax is incorrect)
+2019-01-23 16:17:25 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:17:25 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:17:25 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:17:25 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:17:25 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:17:26 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:17:27 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:17:27 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:17:27 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:17:27 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:17:27 ERROR Main:57 - report\report-2019-17-23_04:17:27.csv (The filename, directory name, or volume label syntax is incorrect)
+2019-01-23 16:17:45 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:17:45 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:17:45 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:17:45 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:17:45 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:17:46 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:17:47 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:17:47 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:17:48 INFO  PaymentHubFileReader:133 - Successfully Updated
+2019-01-23 16:17:48 INFO  PaymentHubFileReader:134 - Write LogDB to csv
+2019-01-23 16:17:48 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:17:48 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:18:12 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:18:12 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:18:12 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:18:12 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:18:12 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:18:13 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:18:14 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:18:14 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:18:15 INFO  PaymentHubFileReader:133 - Successfully Updated
+2019-01-23 16:18:15 INFO  PaymentHubFileReader:134 - Write LogDB to csv
+2019-01-23 16:18:15 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:18:15 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:18:24 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:18:24 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:18:24 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:18:24 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:18:24 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:18:25 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:18:26 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:18:26 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:18:27 INFO  PaymentHubFileReader:133 - Successfully Updated
+2019-01-23 16:18:27 INFO  PaymentHubFileReader:134 - Write LogDB to csv
+2019-01-23 16:18:27 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:18:27 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:18:54 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:18:54 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:18:55 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:18:55 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:18:55 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:18:55 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:18:56 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:18:56 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:18:57 INFO  PaymentHubFileReader:133 - Successfully Updated
+2019-01-23 16:18:57 INFO  PaymentHubFileReader:134 - Write LogDB to csv
+2019-01-23 16:18:57 INFO  PaymentHubFileReader:144 - Remove local file
+2019-01-23 16:18:57 INFO  PaymentHubFileReader:146 - Connection close
+2019-01-23 16:30:16 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:30:16 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:30:16 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:30:16 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:30:16 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:30:17 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:30:18 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:30:18 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:30:19 INFO  PaymentHubFileReader:151 - Remove local file
+2019-01-23 16:30:19 INFO  PaymentHubFileReader:153 - Connection close
+2019-01-23 16:30:19 ERROR Main:57 - 
+2019-01-23 16:31:07 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:31:07 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:31:07 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:31:07 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:31:07 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:31:08 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:31:09 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:31:09 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:31:09 INFO  PaymentHubFileReader:151 - Remove local file
+2019-01-23 16:31:09 INFO  PaymentHubFileReader:153 - Connection close
+2019-01-23 16:31:09 ERROR Main:57 - 
+2019-01-23 16:31:16 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:31:16 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:31:17 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:31:17 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:31:17 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:31:17 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:31:18 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:31:18 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:31:19 INFO  PaymentHubFileReader:151 - Remove local file
+2019-01-23 16:31:19 INFO  PaymentHubFileReader:153 - Connection close
+2019-01-23 16:31:19 ERROR Main:57 - 
+2019-01-23 16:31:41 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:31:41 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:31:42 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:31:42 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:31:42 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:31:42 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:31:43 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:31:43 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:32:03 INFO  PaymentHubFileReader:151 - Remove local file
+2019-01-23 16:32:03 INFO  PaymentHubFileReader:153 - Connection close
+2019-01-23 16:32:03 ERROR Main:57 - 
+2019-01-23 16:33:11 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:33:11 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:33:12 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:33:12 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:33:12 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:33:12 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:33:13 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:33:13 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:33:14 INFO  PaymentHubFileReader:116 - No data to Updated
+2019-01-23 16:33:14 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:33:14 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:33:29 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:33:29 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:33:29 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:33:29 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:33:29 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:33:30 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:33:31 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:33:31 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:33:32 INFO  PaymentHubFileReader:116 - No data to Updated
+2019-01-23 16:33:32 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:33:32 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:33:54 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:33:54 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:33:54 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:33:54 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:33:54 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:33:55 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:33:56 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:33:56 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:33:56 INFO  PaymentHubFileReader:116 - No data to Updated
+2019-01-23 16:33:56 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:33:56 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:34:04 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:34:04 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:34:04 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:34:04 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:34:04 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:34:05 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:34:06 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:34:06 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:34:07 INFO  PaymentHubFileReader:116 - No data to Updated
+2019-01-23 16:34:07 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:34:07 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:36:06 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:36:06 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:36:06 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:36:06 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:36:06 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:36:07 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:36:08 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:36:08 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:36:08 INFO  PaymentHubFileReader:128 - account_id : 0752255497 Update scheme_code to 0201 Successfully Updated
+2019-01-23 16:36:08 ERROR PaymentHubFileReader:148 - Result set after last row
+2019-01-23 16:36:08 INFO  PaymentHubFileReader:152 - Remove local file
+2019-01-23 16:36:08 INFO  PaymentHubFileReader:154 - Connection close
+2019-01-23 16:36:56 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:36:56 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:36:56 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:36:56 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:36:56 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:36:57 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:36:58 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:36:58 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:36:59 INFO  PaymentHubFileReader:128 - account_id : 0752255497 Update scheme_code to 0201 Successfully Updated
+2019-01-23 16:37:06 ERROR PaymentHubFileReader:148 - Result set after last row
+2019-01-23 16:37:06 INFO  PaymentHubFileReader:152 - Remove local file
+2019-01-23 16:37:06 INFO  PaymentHubFileReader:154 - Connection close
+2019-01-23 16:44:31 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:44:32 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:44:32 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:44:32 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:44:32 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:44:32 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:44:34 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:44:34 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:44:34 INFO  PaymentHubFileReader:127 - account_id : 0752255497 Update scheme_code to 0201 Successfully Updated
+2019-01-23 16:44:34 INFO  PaymentHubFileReader:127 - account_id : 0752262535 Update scheme_code to 0202 Successfully Updated
+2019-01-23 16:44:34 INFO  PaymentHubFileReader:141 - No Data Updated
+2019-01-23 16:44:34 INFO  PaymentHubFileReader:154 - Remove local file
+2019-01-23 16:44:34 INFO  PaymentHubFileReader:156 - Connection close
+2019-01-23 16:46:38 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:46:38 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:46:39 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:46:39 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:46:39 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:46:39 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:46:40 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:46:40 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:46:41 INFO  PaymentHubFileReader:140 - No Data Updated
+2019-01-23 16:46:41 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:46:41 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:47:02 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:47:02 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:47:02 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:47:02 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:47:02 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:47:03 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:47:04 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:47:04 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:47:05 INFO  PaymentHubFileReader:140 - No Data Updated
+2019-01-23 16:47:05 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:47:05 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:47:22 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:47:22 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:47:23 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:47:23 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:47:23 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:47:23 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:47:24 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:47:24 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:126 - account_id : 0752255497 Update scheme_code to 0200 Successfully Updated
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:126 - account_id : 0752262535 Update scheme_code to 0200 Successfully Updated
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:143 - Successfully Updated
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:144 - Write LogDB to report2019-01-23_044725.csv
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:47:25 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:48:05 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:48:05 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:48:05 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:48:05 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:48:05 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:48:06 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:48:07 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:48:07 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:48:08 INFO  PaymentHubFileReader:140 - No Data Updated
+2019-01-23 16:48:08 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:48:08 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:48:22 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:48:22 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:48:22 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:48:22 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:48:22 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:48:23 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:48:24 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:48:24 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:48:24 INFO  PaymentHubFileReader:126 - account_id : 0752255497 Update scheme_code to 0201 Successfully Updated
+2019-01-23 16:48:24 INFO  PaymentHubFileReader:126 - account_id : 0752262535 Update scheme_code to 0202 Successfully Updated
+2019-01-23 16:48:25 INFO  PaymentHubFileReader:143 - Successfully Updated
+2019-01-23 16:48:25 INFO  PaymentHubFileReader:144 - Write LogDB to report2019-01-23_044824.csv
+2019-01-23 16:48:25 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:48:25 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:49:13 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:49:13 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:49:13 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:49:13 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:49:13 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:49:14 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:49:15 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:49:15 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:126 - account_id : 0752255497 Update scheme_code to 0200 Successfully Updated
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:126 - account_id : 0752262535 Update scheme_code to 0200 Successfully Updated
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:143 - Successfully Updated
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:144 - Write LogDB to report2019-01-23_044915.csv
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:49:15 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:49:58 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:49:59 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:49:59 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:49:59 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:49:59 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:50:00 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:50:01 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:50:01 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:50:01 INFO  PaymentHubFileReader:140 - No Data Updated
+2019-01-23 16:50:01 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:50:01 INFO  PaymentHubFileReader:155 - Connection close
+2019-01-23 16:50:13 INFO  DbManagement:20 - Oracle JDBC Connection
+2019-01-23 16:50:13 INFO  DbManagement:34 - Oracle JDBC Driver Registered!
+2019-01-23 16:50:13 INFO  DbManagement:54 - You made it, take control your database now!
+2019-01-23 16:50:13 INFO  Main:42 - READ File OACSYN190123.R01
+2019-01-23 16:50:13 INFO  FileSFTP:59 - Start Connection to SFTP
+2019-01-23 16:50:14 INFO  FileSFTP:67 - Connection to SFTP host 192.168.99.100
+2019-01-23 16:50:15 INFO  FileSFTP:33 - DownloadFile from /download/ to D:\project\gs-gradle\PaymentHub Complete!
+2019-01-23 16:50:15 INFO  FileSFTP:48 - Disconnect from SFTP : 192.168.99.100
+2019-01-23 16:50:16 INFO  PaymentHubFileReader:140 - No Data Updated
+2019-01-23 16:50:16 INFO  PaymentHubFileReader:153 - Remove local file
+2019-01-23 16:50:16 INFO  PaymentHubFileReader:155 - Connection close

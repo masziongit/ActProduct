@@ -1,6 +1,7 @@
 # PaymentHub
 
 Configuration
+---------------
 ```sh
 #Database
 db.oracle.url=jdbc:oracle:thin:@192.168.99.101:1521:xe
@@ -27,6 +28,7 @@ file.format=OACSYN[0-9]{6}(\\.)R01
 ```
 
 Usage command
+---------------
 ```sh
 java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode} ${fileName}
 ```

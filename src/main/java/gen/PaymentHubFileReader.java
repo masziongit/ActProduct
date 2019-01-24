@@ -7,18 +7,16 @@ import field.SqlLog;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.beanio.*;
-import util.SqlField;
+import util.Constant;
 import util.Util;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.Writer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,9 +80,9 @@ public class PaymentHubFileReader {
             return;
         }
 
-        StringBuilder queryBuilder = new StringBuilder(prop.getProperty("db.oracle.query.select"));
+        StringBuilder queryBuilder = new StringBuilder(Constant.SqlQuery.SELECT);
         //Add query
-        queryBuilder.append("AND " + SqlField.AcctNumber + " IN (");
+        queryBuilder.append("AND " + Constant.SqlField.AcctNumber + " IN (");
         for (PaymentHub acct : paymentHubFiles) {
             queryBuilder.append(acct.getAcctNumber());
             if (paymentHubFiles.get(paymentHubFiles.size() - 1) != acct)
@@ -95,7 +93,7 @@ public class PaymentHubFileReader {
         PreparedStatement selectStmt = con.prepareStatement(queryBuilder.toString());
         try {
             ResultSet rs = selectStmt.executeQuery();
-            PreparedStatement updateStmt = con.prepareStatement(prop.getProperty("db.oracle.query.update"));
+            PreparedStatement updateStmt = con.prepareStatement(Constant.SqlQuery.UPDATE);
 
             //Loging
             StreamFactory logFactory = StreamFactory.newInstance();
@@ -104,7 +102,7 @@ public class PaymentHubFileReader {
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_hhmmss");
             String strDate = dateFormat.format(new Date());
-            File logf = new File ("report/report"+strDate+".csv");
+            File logf = new File (MessageFormat.format(prop.getProperty("file.sql.report"),strDate));
             BeanWriter logOut = logFactory.createWriter("sqlLog", logf);
 
            int updateNum = 0;
@@ -123,8 +121,8 @@ public class PaymentHubFileReader {
                     //Where
                     updateStmt.setString(++i, updateData.getAcctNumber());
                     updateStmt.addBatch();
-                    logger.info(SqlField.AcctNumber + " : " + updateData.getAcctNumber() +
-                            " Update " + SqlField.AccountProductCode + " to "
+                    logger.info(Constant.SqlField.AcctNumber + " : " + updateData.getAcctNumber() +
+                            " Update " + Constant.SqlField.AccountProductCode + " to "
                             + updateData.getAccountProductCode()+" Successfully Updated");
 
                     writeLogCsv(logOut,updateData,rs);
@@ -160,9 +158,9 @@ public class PaymentHubFileReader {
 
     private void writeLogCsv(BeanWriter logOut, PaymentHub updateData, ResultSet rs) throws SQLException {
         SqlLog sqlLog = new SqlLog();
-        sqlLog.setAcctNumber(rs.getString(SqlField.AcctNumber));
-        sqlLog.setAccountProductCode(rs.getString(SqlField.AccountProductCode));
-        sqlLog.setAvailableBalance(rs.getString(SqlField.AvailableBalance));
+        sqlLog.setAcctNumber(rs.getString(Constant.SqlField.AcctNumber));
+        sqlLog.setAccountProductCode(rs.getString(Constant.SqlField.AccountProductCode));
+        sqlLog.setAvailableBalance(rs.getString(Constant.SqlField.AvailableBalance));
         sqlLog.setUpdateAccountProductCode(updateData.getAccountProductCode());
         sqlLog.setUpdateAvailableBalance(updateData.getAvailableBalance());
         sqlLog.setStatus("Success");
@@ -201,8 +199,8 @@ public class PaymentHubFileReader {
     private PaymentHub getUpdateObj(List<PaymentHub> list,ResultSet rs) throws SQLException {
         for (PaymentHub obj : list) {
 
-            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(SqlField.AcctNumber))
-                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(SqlField.AccountProductCode)))) {
+            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))
+                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
                 return obj;
             }
         }

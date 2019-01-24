@@ -4,6 +4,7 @@ import connect.DbManagement;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.beanio.StreamFactory;
+import util.Constant;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -41,10 +42,10 @@ public class Main {
 
                 logger.info(args[0].toUpperCase()+" File "+args[1]);
                 switch (args[0].toLowerCase()){
-                    case "write" :
+                    case Constant.Mode.WRITE :
                         new PaymentHubFileWriter(prop,factory,con,args[1]);
                         break;
-                    case "read":
+                    case Constant.Mode.READ :
                         new PaymentHubFileReader(prop,factory,con,args[1]);
                         break;
                 }

@@ -6,7 +6,7 @@ import connect.FileSFTP;
 import org.apache.log4j.Logger;
 import org.beanio.BeanWriter;
 import org.beanio.StreamFactory;
-import util.SqlField;
+import util.Constant;
 import util.Util;
 
 import java.io.File;
@@ -23,7 +23,7 @@ public class PaymentHubFileWriter {
 
     public PaymentHubFileWriter(Properties prop, StreamFactory factory, Connection con,String fileName) throws SQLException {
 
-            PreparedStatement preStmt = con.prepareStatement(prop.getProperty("db.oracle.query.select"));
+            PreparedStatement preStmt = con.prepareStatement(Constant.SqlQuery.SELECT);
 
             try {
                 ResultSet rs = preStmt.executeQuery();
@@ -41,13 +41,13 @@ public class PaymentHubFileWriter {
                     paymentHub.setAcctCtl1(String.format("%04d", 11));
                     paymentHub.setAcctCtl2(String.format("%04d",11));
 //                    rs.getString("ACCT_CRNCY")
-                    paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(SqlField.AcctCtl3)));
+                    paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
                     paymentHub.setAcctCtl4(String.format("%04d",0));
 //                    rs.getInt("ACCT_CTL4"))
-                    paymentHub.setAcctNumber(String.format("%010d",rs.getLong(SqlField.AcctNumber)));
-                    paymentHub.setAccountProductCode(String.format("%04d",rs.getInt(SqlField.AccountProductCode)));
+                    paymentHub.setAcctNumber(String.format("%010d",rs.getLong(Constant.SqlField.AcctNumber)));
+                    paymentHub.setAccountProductCode(String.format("%04d",rs.getInt(Constant.SqlField.AccountProductCode)));
                     paymentHub.setAvailableBalance(Util.bigDecToStr("%020d",
-                                rs.getBigDecimal(SqlField.AvailableBalance)));
+                                rs.getBigDecimal(Constant.SqlField.AvailableBalance)));
 //                    paymentHub.setAdditional2(rs.getString("ADDITIONAL2"));
 //                    paymentHub.setAdditional3(rs.getString("ADDITIONAL3"));
 //                    paymentHub.setAdditional4(rs.getString("ADDITIONAL4"));

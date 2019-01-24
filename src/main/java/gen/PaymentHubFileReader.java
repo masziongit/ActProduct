@@ -101,8 +101,7 @@ public class PaymentHubFileReader {
             logFactory.load(prop.getProperty("mapping.file"));
 
             DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_hhmmss");
-            String strDate = dateFormat.format(new Date());
-            File logf = new File (MessageFormat.format(prop.getProperty("file.sql.report"),strDate));
+            File logf = new File (MessageFormat.format(prop.getProperty("file.sql.report"),dateFormat.format(new Date())));
             BeanWriter logOut = logFactory.createWriter("sqlLog", logf);
 
            int updateNum = 0;

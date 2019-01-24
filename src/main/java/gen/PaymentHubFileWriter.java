@@ -28,8 +28,6 @@ public class PaymentHubFileWriter {
             try {
                 ResultSet rs = preStmt.executeQuery();
 
-                Date today = new Date();
-
                 // use a StreamFactory to create a BeanWriter
                 File file = new File(fileName);
                 BeanWriter out = factory.createWriter(prop.getProperty("stream.name"), file);
@@ -61,7 +59,7 @@ public class PaymentHubFileWriter {
                 //set footer
                 PaymentHubFooter paymentHubFooter = new PaymentHubFooter();
                 paymentHubFooter.setRecordIndentifer("T");
-                paymentHubFooter.setProcessDate(today);
+                paymentHubFooter.setProcessDate(new Date());
 
                 out.write(paymentHubFooter);
                 out.flush();

@@ -28,7 +28,7 @@ public class Main {
                 Properties prop = new Properties();
                 prop.load(new FileInputStream(config));
 
-                if (args[1].length() == 15 && args[1].matches(prop.getProperty("file.format"))){
+                if (!(args[1].length() == 16 && args[1].matches(prop.getProperty("file.format")))){
                     throw new Exception("File Name is not Proper as per Format.");
                 }
 

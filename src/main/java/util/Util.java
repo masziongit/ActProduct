@@ -49,9 +49,7 @@ public class Util {
 
     //Test
     public static void main(String[] args) throws Exception{
-        String str = "OACSYN190122.R01";
-        String format = "OACSYN[0-9]{6}(\\.)R01";
-        System.out.println(str.matches(format));
+        System.out.println("Run other class");
     }
 
 }

@@ -24,25 +24,20 @@ public class FileSFTP {
 
                     case 'U':
                         sftpChannel.put(fileName, prop.getProperty("sftp.upload.path")+fileName);
-                        logger.info("UploadFile  to "
-                                + prop.getProperty("sftp.upload.path") + " Complete!");
+                        logger.info("UploadFile  to " + prop.getProperty("sftp.upload.path") + " Complete!");
                         break;
 
                     case 'D':
                         sftpChannel.get(prop.getProperty("sftp.download.path")+fileName,fileName);
                         logger.info("DownloadFile from " + prop.getProperty("sftp.download.path")+" Complete!");
-
-                        sftpChannel.exit();
                 }
 
                 sftpChannel.exit();
 
             } catch (JSchException e) {
-                e.printStackTrace();
-                logger.error(e.getMessage());
+                logger.error(e);
             } catch (SftpException e) {
-                e.printStackTrace();
-                logger.error(e.getMessage());
+                logger.error(e);
             } finally {
                 logger.info("Disconnect from SFTP : " + session.getHost());
                 session.disconnect();

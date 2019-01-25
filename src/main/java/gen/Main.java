@@ -8,6 +8,9 @@ import util.Constant;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 public class Main {
@@ -18,7 +21,7 @@ public class Main {
 
         try {
 
-            if (args.length == 2){
+            if (args.length > 0){
 
                 String config = System.getProperty("config.file");
                 if (StringUtils.isEmpty(config)) {
@@ -28,9 +31,14 @@ public class Main {
                 Properties prop = new Properties();
                 prop.load(new FileInputStream(config));
 
-                if (!(args[1].length() == 16 && args[1].matches(prop.getProperty("file.format")))){
-                    throw new Exception("File Name is not Proper as per Format.");
-                }
+                DateFormat dateFormat = new SimpleDateFormat("yyMMdd");
+                String fileName = "OACSYN"+dateFormat.format(new Date())+".R01";
+//                String fileName = args[1];
+
+                //Not Need
+//                if (!(fileName.length() == 16 && fileName.matches(prop.getProperty("file.format")))){
+//                    throw new Exception("File Name is not Proper as per Format.");
+//                }
 
                 // create a StreamFactory
                 StreamFactory factory = StreamFactory.newInstance();
@@ -40,13 +48,13 @@ public class Main {
                 DbManagement db = new DbManagement(prop);
                 Connection con = db.connection();
 
-                logger.info(args[0].toUpperCase()+" File "+args[1]);
+                logger.info(args[0].toUpperCase()+" File "+fileName);
                 switch (args[0].toLowerCase()){
                     case Constant.Mode.WRITE :
-                        new PaymentHubFileWriter(prop,factory,con,args[1]);
+                        new PaymentHubFileWriter(prop,factory,con,fileName);
                         break;
                     case Constant.Mode.READ :
-                        new PaymentHubFileReader(prop,factory,con,args[1]);
+                        new PaymentHubFileReader(prop,factory,con,fileName);
                         break;
                 }
             }else {
@@ -55,7 +63,7 @@ public class Main {
 
         }catch (Exception e){
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error(e);
         }
     }
 

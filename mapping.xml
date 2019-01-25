@@ -7,14 +7,14 @@
             <property name="recordTerminator" value="\n"/>
         </parser>
         <record name="record" class="field.PaymentHub" minOccurs="0" maxOccurs="unbounded" ridLength="151">
-            <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="D"/>
+            <field name="recordIndentifer" position="0" length="1" trim="true"/>
             <field name="acctCtl1" position="1" length="4" trim="true"/>
             <field name="acctCtl2" position="5" length="4" trim="true"/>
             <field name="acctCtl3" position="9" length="4" trim="true"/>
             <field name="acctCtl4" position="13" length="4" trim="true"/>
-            <field name="acctNumber" position="17" length="10" trim="true"/>
-            <field name="accountProductCode" position="27" length="4" trim="true"/>
-            <field name="availableBalance" position="31" length="20" trim="true" align="right"/>
+            <field name="acctNumber" position="17" length="10" trim="true" />
+            <field name="accountProductCode" position="27" length="4" trim="true"  />
+            <field name="availableBalance" position="31" length="20" trim="true"  />
             <field name="additional2" position="51" length="20" trim="true"/>
             <field name="additional3" position="71" length="20" trim="true"/>
             <field name="additional4" position="91" length="20" trim="true"/>
@@ -25,31 +25,6 @@
             <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="T"/>
             <field name="processDate" position="1" length="8" trim="true" format="yyyyMMdd"/>
         </record>
-    </stream>
-
-    <stream name="sqlLog" format="csv" strict="true">
-
-        <record name="header" minOccurs="1" maxOccurs="1" class="field.SqlLog">
-            <field name="updateDate" position="0" default="update_date" ignore="true"/>
-            <field name="acctNumber" position="1" default="acct_number" ignore="true"/>
-            <field name="accountProductCode" position="2" default="account_product_code" ignore="true"/>
-            <field name="availableBalance" position="3" default="available_balance" ignore="true"/>
-            <field name="updateAccountProductCode" position="4" default="update_account_product_code" ignore="true"/>
-            <field name="updateAvailableBalance" position="5" default="update_available_balance" ignore="true"/>
-            <field name="status" position="6" default="status" ignore="true"/>
-        </record>
-
-        <record name="record" class="field.SqlLog" minOccurs="0" maxOccurs="unbounded">
-            <field name="updateDate"  position="0" format="yyyy-MM-dd hh:mm:ss"/>
-            <field name="acctNumber" position="1"  />
-            <field name="accountProductCode" position="2"/>
-            <field name="availableBalance" position="3"  />
-            <field name="updateAccountProductCode" position="4"  />
-            <field name="updateAvailableBalance" position="5"  />
-            <field name="status" position="6"  />
-
-        </record>
-
     </stream>
 
 </beanio>

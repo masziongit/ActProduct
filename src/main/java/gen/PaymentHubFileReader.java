@@ -135,8 +135,8 @@ public class PaymentHubFileReader {
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
         for (PaymentHub obj : list) {
 
-            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))){
-//                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
+            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))
+                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
                 return obj;
             }
         }

@@ -70,7 +70,7 @@ public class PaymentHubFileWriter {
                     logger.info("Write file complete");
                 } catch (Exception e) {
                     e.printStackTrace();
-                    logger.error(e.getMessage());
+                    logger.error(e);
                 }finally {
                     file.delete();
                     logger.info("Remove local file");
@@ -78,7 +78,7 @@ public class PaymentHubFileWriter {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                logger.error(e.getMessage());
+                logger.error(e);
             } finally {
                 preStmt.close();
                 con.close();

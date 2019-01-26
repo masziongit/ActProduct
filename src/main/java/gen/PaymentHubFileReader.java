@@ -57,7 +57,7 @@ public class PaymentHubFileReader {
 
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error(e);
             return;
         }
 
@@ -81,14 +81,15 @@ public class PaymentHubFileReader {
 
             while (rs.next()) {
 
-                PaymentHub updateData = getUpdateObj(paymentHubFiles, rs);
+                try {
+                    PaymentHub updateData = getUpdateObj(paymentHubFiles, rs);
 
-                if (updateData == null) {
+                    if (updateData == null) {
 //                    logger.error(SqlField.AcctNumber + " : " + accountNumber + " no need to update");
-                } else {
-                    int i = 0;
+                    } else {
+                        int i = 0;
 
-                    try {
+
                         //set
                         updateStmt.setBigDecimal(++i, Util.strToBigDec(updateData.getAvailableBalance()));
                         updateStmt.setInt(++i, Integer.valueOf(updateData.getAccountProductCode()));
@@ -101,11 +102,13 @@ public class PaymentHubFileReader {
                                 + updateData.getAccountProductCode() + " Successfully Updated");
 
                         updateNum++;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        logger.error("Can't Update " + updateData.getAcctNumber() + " : " + e.getMessage());
-                    }
 
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    logger.error("Can't Update "+Constant.SqlField.AcctNumber +" "+
+                            rs.getLong(Constant.SqlField.AcctNumber) + " : " + e);
                 }
             }
 
@@ -117,7 +120,7 @@ public class PaymentHubFileReader {
 
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error(e);
         } finally {
             in.close();
             file.delete();
@@ -132,8 +135,8 @@ public class PaymentHubFileReader {
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
         for (PaymentHub obj : list) {
 
-            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))
-                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
+            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))){
+//                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
                 return obj;
             }
         }

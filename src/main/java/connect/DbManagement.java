@@ -43,9 +43,7 @@ public class DbManagement {
                     , prop.getProperty("db.oracle.pass"));
 
         } catch (SQLException e) {
-
             logger.error("Connection Failed! Check output console");
-            e.printStackTrace();
             return null;
 
         }

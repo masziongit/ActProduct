@@ -27,7 +27,7 @@ file.format=OACSYN[0-9]{6}(\\.)R01
 Usage command
 ---------------
 ```sh
-java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode} ${fileName}
+java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode}
 ```
   Use -Dconfig.file=${config.properties} to get your config
 	
@@ -36,5 +36,4 @@ java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode} ${fileNam
   Use ${mode} to set your mode to run
 		use "write" to Write data from database to file
 		use "read" to Read data from to file to database
-	
-  Use ${fileName} to set your file name
+

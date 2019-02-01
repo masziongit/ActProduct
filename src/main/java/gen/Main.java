@@ -21,7 +21,9 @@ public class Main {
 
         try {
 
-            if (args.length > 0){
+            System.out.println(Main.class.getClassLoader().getResource("config.properties"));
+
+            if (args.length > 0) {
 
                 String config = System.getProperty("config.file");
                 if (StringUtils.isEmpty(config)) {
@@ -32,7 +34,7 @@ public class Main {
                 prop.load(new FileInputStream(config));
 
                 DateFormat dateFormat = new SimpleDateFormat("yyMMdd");
-                String fileName = "OACSYN"+dateFormat.format(new Date())+".R01";
+                String fileName = "OACSYN" + dateFormat.format(new Date()) + ".R01";
 //                String fileName = args[1];
 
                 //Not Need
@@ -48,20 +50,23 @@ public class Main {
                 DbManagement db = new DbManagement(prop);
                 Connection con = db.connection();
 
-                logger.info(args[0].toUpperCase()+" File "+fileName);
-                switch (args[0].toLowerCase()){
-                    case Constant.Mode.WRITE :
-                        new PaymentHubFileWriter(prop,factory,con,fileName);
+                logger.info(args[0].toUpperCase() + " File " + fileName);
+                switch (args[0].toLowerCase()) {
+                    case Constant.Mode.WRITE:
+                        new PaymentHubFileWriter(prop, factory, con, fileName);
                         break;
-                    case Constant.Mode.READ :
-                        new PaymentHubFileReader(prop,factory,con,fileName);
+                    case Constant.Mode.READ:
+                        new PaymentHubFileReader(prop, factory, con, fileName);
+                        break;
+                    default:
+                        usage();
                         break;
                 }
-            }else {
+            } else {
                 usage();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             logger.error(e);
         }
@@ -75,7 +80,7 @@ public class Main {
         System.out.println("\tUse ${mode} to set your mode to run");
         System.out.println("\t\tuse \"write\" to Write data from database to file");
         System.out.println("\t\tuse \"read\" to Read data from to file to database");
-        System.out.println("\tUse ${fileName} to set your file name");
+//        System.out.println("\tUse ${fileName} to set your file name");
     }
 
 }

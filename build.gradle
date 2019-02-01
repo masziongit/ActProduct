@@ -4,6 +4,17 @@ apply plugin: 'application'
 
 mainClassName = 'gen.Main'
 
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
 // tag::repositories[]
 repositories {
     mavenCentral()

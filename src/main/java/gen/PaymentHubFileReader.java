@@ -10,6 +10,7 @@ import util.Constant;
 import util.Util;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,16 +62,6 @@ public class PaymentHubFileReader {
             return;
         }
 
-//        StringBuilder queryBuilder = new StringBuilder(Constant.SqlQuery.SELECT);
-//
-//        queryBuilder.append("AND " + Constant.SqlField.AcctNumber + " IN (");
-//        for (PaymentHub acct : paymentHubFiles) {
-//            queryBuilder.append(acct.getAcctNumber());
-//            if (paymentHubFiles.get(paymentHubFiles.size() - 1) != acct)
-//                queryBuilder.append(" , ");
-//        }
-//        queryBuilder.append(" )");
-
         //Add query
         PreparedStatement selectStmt = con.prepareStatement(Constant.SqlQuery.SELECT);
         try {
@@ -98,16 +89,20 @@ public class PaymentHubFileReader {
                         updateStmt.executeQuery();
 
                         logger.info(Constant.SqlField.AcctNumber + " : " + updateData.getAcctNumber() +
-                                " Update " + Constant.SqlField.AccountProductCode + " to "
-                                + updateData.getAccountProductCode() + " Successfully Updated");
+                                " Update " + Constant.SqlField.AccountProductCode +
+                                " from " + rs.getInt(Constant.SqlField.AccountProductCode) +
+                                " to " + updateData.getAccountProductCode() +
+                                " Update " + Constant.SqlField.AvailableBalance +
+                                " from " + rs.getInt(Constant.SqlField.AvailableBalance) +
+                                " to " + updateData.getAvailableBalance() +
+                                " Successfully Updated");
 
                         updateNum++;
-
 
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    logger.error("Can't Update "+Constant.SqlField.AcctNumber +" "+
+                    logger.error("Can't Update " + Constant.SqlField.AcctNumber + " " +
                             rs.getLong(Constant.SqlField.AcctNumber) + " : " + e);
                 }
             }
@@ -134,18 +129,17 @@ public class PaymentHubFileReader {
 
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
         for (PaymentHub obj : list) {
+            BigDecimal oB = Util.strToBigDec(obj.getAvailableBalance());
+            BigDecimal rsB = rs.getBigDecimal(Constant.SqlField.AvailableBalance).setScale(2);
 
             if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))
-                    && !(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode)))) {
+                    && (!(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode))
+                    && (oB.compareTo(rsB) == 0)))) {
                 return obj;
+
             }
+
         }
         return null;
     }
-    //        List<PaymentHub> updateList = paymentHubFiles.stream()
-//                            .filter(p -> (Long.valueOf(p.getAcctNumber())
-//                                    .equals(accountNumber)) &&
-//                                    !(Integer.valueOf(p.getAccountProductCode())
-//                                            .equals(accountProductCode)))
-//                            .collect(Collectors.toList());
 }

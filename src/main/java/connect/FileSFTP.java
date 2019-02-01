@@ -2,6 +2,7 @@ package connect;
 
 import com.jcraft.jsch.*;
 import org.apache.log4j.Logger;
+import util.Constant;
 
 import java.util.Properties;
 
@@ -22,12 +23,12 @@ public class FileSFTP {
                 ChannelSftp sftpChannel = getchanel(session);
                 switch (mode) {
 
-                    case 'U':
+                    case Constant.Mode.UPLOAD :
                         sftpChannel.put(fileName, prop.getProperty("sftp.upload.path")+fileName);
                         logger.info("UploadFile  to " + prop.getProperty("sftp.upload.path") + " Complete!");
                         break;
 
-                    case 'D':
+                    case Constant.Mode.DOWNLOAD:
                         sftpChannel.get(prop.getProperty("sftp.download.path")+fileName,fileName);
                         logger.info("DownloadFile from " + prop.getProperty("sftp.download.path")+" Complete!");
                 }

@@ -6,6 +6,9 @@ public final class Constant {
     public final class Mode{
         public static final String WRITE = "write";
         public static final String READ = "read";
+
+        public static final char UPLOAD = 'U';
+        public static final char DOWNLOAD = 'D';
     }
 
 

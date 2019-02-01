@@ -21,7 +21,7 @@ public class Main {
 
         try {
 
-            System.out.println(Main.class.getClassLoader().getResource("config.properties"));
+//            System.out.println(Main.class.getClassLoader().getResource("config.properties"));
 
             if (args.length > 0) {
 

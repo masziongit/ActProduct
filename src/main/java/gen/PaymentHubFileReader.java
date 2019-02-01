@@ -93,8 +93,8 @@ public class PaymentHubFileReader {
                                 " from " + rs.getInt(Constant.SqlField.AccountProductCode) +
                                 " to " + updateData.getAccountProductCode() +
                                 " Update " + Constant.SqlField.AvailableBalance +
-                                " from " + rs.getInt(Constant.SqlField.AvailableBalance) +
-                                " to " + updateData.getAvailableBalance() +
+                                " from " + rs.getBigDecimal(Constant.SqlField.AvailableBalance) +
+                                " to " + Util.strToBigDec(updateData.getAvailableBalance()) +
                                 " Successfully Updated");
 
                         updateNum++;
@@ -129,14 +129,18 @@ public class PaymentHubFileReader {
 
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
         for (PaymentHub obj : list) {
+
+            Long oN = Long.valueOf(obj.getAcctNumber());
+            Long rsN = rs.getLong(Constant.SqlField.AcctNumber);
+
+            Integer oPC = Integer.valueOf(obj.getAccountProductCode());
+            Integer rsPC = rs.getInt(Constant.SqlField.AccountProductCode);
+
             BigDecimal oB = Util.strToBigDec(obj.getAvailableBalance());
             BigDecimal rsB = rs.getBigDecimal(Constant.SqlField.AvailableBalance).setScale(2);
 
-            if (Long.valueOf(obj.getAcctNumber()).equals(rs.getLong(Constant.SqlField.AcctNumber))
-                    && (!(Integer.valueOf(obj.getAccountProductCode()).equals(rs.getInt(Constant.SqlField.AccountProductCode))
-                    && (oB.compareTo(rsB) == 0)))) {
+            if (oN.equals(rsN) && (!(oPC.equals(rsPC) && (oB.compareTo(rsB) == 0)))) {
                 return obj;
-
             }
 
         }

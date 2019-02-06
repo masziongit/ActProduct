@@ -4,17 +4,6 @@ apply plugin: 'application'
 
 mainClassName = 'gen.Main'
 
-sourceSets {
-    main {
-        java {
-            srcDirs= ["src/main/java"]
-        }
-        resources {
-            srcDirs= ["src/main/resources"]
-        }
-    }
-}
-
 // tag::repositories[]
 repositories {
     mavenCentral()
@@ -56,6 +45,10 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     // https://mvnrepository.com/artifact/com.jcraft/jsch
     compile group: 'com.jcraft', name: 'jsch', version: '0.1.54'
+
+
+
+
 
 }
 // end::dependencies[]

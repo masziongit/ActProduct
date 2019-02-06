@@ -1,7 +1,0 @@
-FROM openjdk:7-jdk-alpine
-
-COPY build/libs/PaymentHub.jar /app/PaymentHub.jar
-COPY config.properties config.properties
-COPY mapping.xml mapping.xml
-
-ENTRYPOINT ["java","-jar","/app/PaymentHub.jar"]

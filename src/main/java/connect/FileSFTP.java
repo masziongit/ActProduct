@@ -36,11 +36,13 @@ public class FileSFTP {
                 sftpChannel.exit();
 
             } catch (JSchException e) {
+                e.printStackTrace();
                 logger.error(e);
             } catch (SftpException e) {
+                e.printStackTrace();
                 logger.error(e);
             } finally {
-                logger.info("Disconnect from SFTP : " + session.getHost());
+//                logger.info("Disconnect from SFTP : " + session.getHost());
                 session.disconnect();
             }
 
@@ -50,13 +52,18 @@ public class FileSFTP {
     private Session getSession(Properties prop) throws JSchException {
 
         JSch jsch = new JSch();
-
+        jsch.addIdentity(prop.getProperty("sftp.ssh.keyfile"),prop.getProperty("sftp.ssh.passphrase"));
         logger.info("Start Connection to SFTP");
 
         Session session = jsch.getSession(prop.getProperty("sftp.user")
                 , prop.getProperty("sftp.host"), Integer.valueOf(prop.getProperty("sftp.port")));
-        session.setConfig("StrictHostKeyChecking", "no");
-        session.setPassword(prop.getProperty("sftp.password"));
+        Properties config = new java.util.Properties();
+
+        config.put("PreferredAuthentications", "publickey,keyboard-interactive,password");
+        config.put("StrictHostKeyChecking", "no");
+        session.setConfig(config);
+//        session.setPassword(prop.getProperty("sftp.password"));
+
         session.connect();
 
         logger.info("Connection to SFTP host " + session.getHost());

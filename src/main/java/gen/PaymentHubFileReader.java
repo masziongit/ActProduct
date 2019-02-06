@@ -63,10 +63,10 @@ public class PaymentHubFileReader {
         }
 
         //Add query
-        PreparedStatement selectStmt = con.prepareStatement(Constant.SqlQuery.SELECT);
+        PreparedStatement selectStmt = con.prepareStatement(prop.getProperty("db.select"));
         try {
             ResultSet rs = selectStmt.executeQuery();
-            PreparedStatement updateStmt = con.prepareStatement(Constant.SqlQuery.UPDATE);
+            PreparedStatement updateStmt = con.prepareStatement(prop.getProperty("db.update"));
 
             int updateNum = 0;
 

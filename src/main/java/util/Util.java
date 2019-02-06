@@ -3,6 +3,7 @@ package util;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 
 public class Util {
 
@@ -14,7 +15,7 @@ public class Util {
         //remove .
         String valstr = String.valueOf(value).replace(".", "");
         //fill zero by regex
-        String result = String.format(format, Integer.valueOf(valstr));
+        String result = String.format(format, new BigInteger(valstr));
 
         return result;
     }

@@ -30,13 +30,13 @@ public final class Constant {
     }
 
     public final class SqlQuery {
-        //sql query
-        public static final String SELECT = "SELECT branch_code, scheme_code, acct_bal_amt, acct_crncy, account_id, scheme_type " +
-                "FROM ext_general_acct_table " +
-                "WHERE bank_id = '011' AND scheme_type != 'OAB' AND LENGTH(account_id) = 10";
-
-        public static final String UPDATE = "UPDATE EXT_GENERAL_ACCT_TABLE " +
-                "SET acct_bal_amt=?,scheme_code=? " +
-                "WHERE account_id =? AND  bank_id ='011'";
+//        //sql query
+//        public static final String SELECT = "SELECT branch_code, scheme_code, acct_bal_amt, acct_crncy, account_id, scheme_type " +
+//                "FROM ext_general_acct_table " +
+//                "WHERE bank_id = '011' AND scheme_type != 'OAB' AND LENGTH(account_id) = 10";
+//
+//        public static final String UPDATE = "UPDATE EXT_GENERAL_ACCT_TABLE " +
+//                "SET acct_bal_amt=?,scheme_code=? " +
+//                "WHERE account_id =? AND  bank_id ='011'";
     }
 }

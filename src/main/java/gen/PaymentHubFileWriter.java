@@ -23,7 +23,7 @@ public class PaymentHubFileWriter {
 
     public PaymentHubFileWriter(Properties prop, StreamFactory factory, Connection con,String fileName) throws SQLException {
 
-            PreparedStatement preStmt = con.prepareStatement(Constant.SqlQuery.SELECT);
+            PreparedStatement preStmt = con.prepareStatement(prop.getProperty("db.select"));
 
             try {
                 ResultSet rs = preStmt.executeQuery();
@@ -37,11 +37,11 @@ public class PaymentHubFileWriter {
                     PaymentHub paymentHub = new PaymentHub();
                     paymentHub.setRecordIndentifer("D");
                     paymentHub.setAcctCtl1(String.format("%04d", 11));
-                    paymentHub.setAcctCtl2(String.format("%04d",11));
+                    paymentHub.setAcctCtl2(String.format("%04d",1));
 //                    rs.getString("ACCT_CRNCY")
                     paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
                     paymentHub.setAcctCtl4(String.format("%04d",0));
-//                    rs.getInt("ACCT_CTL4"))
+//                    rs.getInt("ACCT_CTL4"))Account type code
                     paymentHub.setAcctNumber(String.format("%010d",rs.getLong(Constant.SqlField.AcctNumber)));
                     paymentHub.setAccountProductCode(String.format("%04d",rs.getInt(Constant.SqlField.AccountProductCode)));
                     paymentHub.setAvailableBalance(Util.bigDecToStr("%020d",

@@ -51,6 +51,8 @@ public class Util {
     //Test
     public static void main(String[] args) throws Exception{
         System.out.println("Run other class");
+        String output = String.format("OACSYN%05d.R01",19020711);
+        System.out.printf(output);
     }
 
 }

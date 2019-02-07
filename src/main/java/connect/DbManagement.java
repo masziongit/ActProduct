@@ -31,12 +31,12 @@ public class DbManagement {
 
         }
 
-        logger.info("Oracle JDBC Driver Registered!");
-
+//        logger.debug("Oracle JDBC Driver Registered!");
         Connection connection = null;
 
         try {
 
+            logger.debug(String.format("Connecting to %s",prop.getProperty("db.oracle.url")));
             connection = DriverManager.getConnection(
                     prop.getProperty("db.oracle.url")
                     , prop.getProperty("db.oracle.user")
@@ -49,10 +49,10 @@ public class DbManagement {
         }
 
         if (connection != null) {
-            logger.info("You made it, take control your database now!");
+            logger.info("Connection database complete!!");
             return connection;
         } else {
-            logger.error("Failed to make connection!");
+            logger.error("Failed to make connection");
         }
         return null;
     }

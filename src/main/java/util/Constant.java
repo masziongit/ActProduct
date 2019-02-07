@@ -11,6 +11,10 @@ public final class Constant {
         public static final char DOWNLOAD = 'D';
     }
 
+    public final class Session{
+        public static final String OPEN_CHANNEL = "sftp";
+    }
+
 
     //sql field
     public final class SqlField {

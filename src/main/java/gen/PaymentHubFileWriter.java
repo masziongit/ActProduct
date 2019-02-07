@@ -23,13 +23,16 @@ public class PaymentHubFileWriter {
 
     public PaymentHubFileWriter(Properties prop, StreamFactory factory, Connection con,String fileName) throws SQLException {
 
+            logger.debug("PreparedStatement : "+prop.getProperty("db.select"));
             PreparedStatement preStmt = con.prepareStatement(prop.getProperty("db.select"));
 
             try {
                 ResultSet rs = preStmt.executeQuery();
+                logger.debug("PreparedStatement executeQuery complete!!");
 
-                // use a StreamFactory to create a BeanWriter
+                logger.debug("Create local file");
                 File file = new File(fileName);
+                logger.debug("Mapping writer file from stream name is "+prop.getProperty("stream.name"));
                 BeanWriter out = factory.createWriter(prop.getProperty("stream.name"), file);
 
                 while (rs.next()) {
@@ -55,25 +58,29 @@ public class PaymentHubFileWriter {
                     // write an Employee object directly to the BeanWriter
                     out.write(paymentHub);
                 }
+                logger.debug("Write record complete!!");
 
                 //set footer
                 PaymentHubFooter paymentHubFooter = new PaymentHubFooter();
                 paymentHubFooter.setRecordIndentifer("T");
                 paymentHubFooter.setProcessDate(new Date());
-
                 out.write(paymentHubFooter);
+                logger.debug("Write trailer complete!!");
+
                 out.flush();
                 out.close();
 
+                logger.debug("Write local complete!!");
+
                 try {
                     new FileSFTP(prop,'U',fileName);
-                    logger.info("Write file complete");
+
                 } catch (Exception e) {
                     e.printStackTrace();
                     logger.error(e);
                 }finally {
                     file.delete();
-                    logger.info("Remove local file");
+                    logger.debug("Remove local file");
                 }
 
             } catch (SQLException e) {
@@ -82,7 +89,7 @@ public class PaymentHubFileWriter {
             } finally {
                 preStmt.close();
                 con.close();
-                logger.info("Connection close");
+                logger.info("Database Connection close");
             }
 
 

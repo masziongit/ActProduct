@@ -3,6 +3,7 @@ package gen;
 import connect.DbManagement;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.beanio.StreamFactory;
 import util.Constant;
 
@@ -21,30 +22,38 @@ public class Main {
 
         try {
 
-//            System.out.println(Main.class.getClassLoader().getResource("config.properties"));
-
             if (args.length > 0) {
 
                 String config = System.getProperty("config.file");
-                if (StringUtils.isEmpty(config)) {
+                if (StringUtils.isEmpty(System.getProperty("config.file"))) {
                     config = "config.properties";
                 }
 
                 Properties prop = new Properties();
                 prop.load(new FileInputStream(config));
+                //custom log file
+                if (!StringUtils.isEmpty(prop.getProperty("log.config.file"))){
+                    PropertyConfigurator.configure(prop.getProperty("log.config.file"));
+                }
 
-                DateFormat dateFormat = new SimpleDateFormat("yyMMdd");
-                String fileName = "OACSYN" + dateFormat.format(new Date()) + ".R01";
-//                String fileName = args[1];
+                logger.info("Load configuration file");
+                logger.debug("from "+config);
 
-                //Not Need
-//                if (!(fileName.length() == 16 && fileName.matches(prop.getProperty("file.format")))){
-//                    throw new Exception("File Name is not Proper as per Format.");
-//                }
+                DateFormat dateFormat = new SimpleDateFormat(prop.getProperty("file.name.dateformat"));
+                String fileName = prop.getProperty("file.name.prefix") +
+                                    dateFormat.format(new Date()) +
+                                    "."+prop.getProperty("file.name.type");
+                logger.debug("File name is "+fileName);
 
-                // create a StreamFactory
+                logger.debug("File format is "+prop.getProperty("file.format"));
+                if (!(fileName.matches(prop.getProperty("file.format")))){
+                    throw new Exception("File Name is not Proper as per Format.");
+                }
+                logger.debug("Match file name format!!");
+
+                logger.debug("Create a StreamFactory ");
                 StreamFactory factory = StreamFactory.newInstance();
-                // load the mapping file
+                logger.debug("Load factory mapping file from "+prop.getProperty("mapping.file"));
                 factory.load(prop.getProperty("mapping.file"));
 
                 DbManagement db = new DbManagement(prop);

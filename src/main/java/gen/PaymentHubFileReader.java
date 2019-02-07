@@ -2,7 +2,6 @@ package gen;
 
 import connect.FileSFTP;
 import field.PaymentHub;
-import field.PaymentHubFooter;
 import org.apache.log4j.Logger;
 import org.beanio.BeanReader;
 import org.beanio.StreamFactory;
@@ -25,14 +24,17 @@ public class PaymentHubFileReader {
     public PaymentHubFileReader(Properties prop, StreamFactory factory, Connection con, String fileName) throws Exception {
 
         new FileSFTP(prop, 'D', fileName);
-        // use a StreamFactory to create a BeanWriter
+
+        logger.debug("Create local file");
         File file = new File(fileName);
+        logger.debug("Mapping reader file from stream name is "+prop.getProperty("stream.name"));
         BeanReader in = factory.createReader(prop.getProperty("stream.name"), file);
-        //Read file
+
         List<PaymentHub> paymentHubFiles = new ArrayList<>();
+        logger.info("Reading file");
         try {
             Object record;
-            PaymentHubFooter footer = null;
+//            PaymentHubFooter footer = null;
             while ((record = in.read()) != null) {
 
                 if ("record".equals(in.getRecordName())) {
@@ -61,11 +63,16 @@ public class PaymentHubFileReader {
             logger.error(e);
             return;
         }
+        logger.info("Reading file complete!!");
 
-        //Add query
+        logger.debug("PreparedStatement : "+prop.getProperty("db.select"));
         PreparedStatement selectStmt = con.prepareStatement(prop.getProperty("db.select"));
+
         try {
             ResultSet rs = selectStmt.executeQuery();
+            logger.debug("PreparedStatement executeQuery complete!!");
+
+            logger.debug("PreparedStatement : "+prop.getProperty("db.update"));
             PreparedStatement updateStmt = con.prepareStatement(prop.getProperty("db.update"));
 
             int updateNum = 0;
@@ -76,10 +83,10 @@ public class PaymentHubFileReader {
                     PaymentHub updateData = getUpdateObj(paymentHubFiles, rs);
 
                     if (updateData == null) {
-//                    logger.error(SqlField.AcctNumber + " : " + accountNumber + " no need to update");
+                        logger.debug(Constant.SqlField.AcctNumber + " : " +
+                                rs.getInt(Constant.SqlField.AcctNumber) + " no need to update");
                     } else {
                         int i = 0;
-
 
                         //set
                         updateStmt.setBigDecimal(++i, Util.strToBigDec(updateData.getAvailableBalance()));
@@ -95,19 +102,19 @@ public class PaymentHubFileReader {
                                 " Update " + Constant.SqlField.AvailableBalance +
                                 " from " + rs.getBigDecimal(Constant.SqlField.AvailableBalance) +
                                 " to " + Util.strToBigDec(updateData.getAvailableBalance()) +
-                                " Successfully Updated");
+                                " Successfully Updated!!");
 
                         updateNum++;
 
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    logger.error("Can't Update " + Constant.SqlField.AcctNumber + " " +
+                    logger.error("Can't Update " + Constant.SqlField.AcctNumber + "=" +
                             rs.getLong(Constant.SqlField.AcctNumber) + " : " + e);
                 }
             }
 
-            if (updateNum < 1) {
+            if (updateNum <= 0) {
                 logger.info("No Data Updated");
             }
 
@@ -119,15 +126,16 @@ public class PaymentHubFileReader {
         } finally {
             in.close();
             file.delete();
-            logger.info("Remove local file");
+            logger.debug("Remove local file");
             con.close();
-            logger.info("Connection close");
+            logger.info("Database Connection close");
         }
 
 
     }
 
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
+
         for (PaymentHub obj : list) {
 
             Long oN = Long.valueOf(obj.getAcctNumber());

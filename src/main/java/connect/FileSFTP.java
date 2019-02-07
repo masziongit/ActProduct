@@ -57,8 +57,8 @@ public class FileSFTP {
     private Session getSession(Properties prop) throws JSchException {
 
         JSch jsch = new JSch();
-        logger.debug("Identity by "+prop.getProperty("sftp.ssh.keyfile")+
-                        "passphrase is "+prop.getProperty("sftp.ssh.passphrase"));
+        logger.debug("Identity by key "+prop.getProperty("sftp.ssh.keyfile")+
+                        " passphrase is "+prop.getProperty("sftp.ssh.passphrase"));
         jsch.addIdentity(prop.getProperty("sftp.ssh.keyfile"),prop.getProperty("sftp.ssh.passphrase"));
         logger.info("Start Connection to SFTP");
 

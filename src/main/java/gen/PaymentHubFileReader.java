@@ -2,7 +2,6 @@ package gen;
 
 import connect.FileSFTP;
 import field.PaymentHub;
-import field.PaymentHubFooter;
 import org.apache.log4j.Logger;
 import org.beanio.BeanReader;
 import org.beanio.StreamFactory;
@@ -32,7 +31,7 @@ public class PaymentHubFileReader {
         List<PaymentHub> paymentHubFiles = new ArrayList<>();
         try {
             Object record;
-            PaymentHubFooter footer = null;
+//            PaymentHubFooter footer = null;
             while ((record = in.read()) != null) {
 
                 if ("record".equals(in.getRecordName())) {
@@ -128,6 +127,7 @@ public class PaymentHubFileReader {
     }
 
     private PaymentHub getUpdateObj(List<PaymentHub> list, ResultSet rs) throws Exception {
+
         for (PaymentHub obj : list) {
 
             Long oN = Long.valueOf(obj.getAcctNumber());

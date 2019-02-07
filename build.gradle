@@ -45,6 +45,9 @@ dependencies {
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
     // https://mvnrepository.com/artifact/com.jcraft/jsch
     compile group: 'com.jcraft', name: 'jsch', version: '0.1.54'
+    // https://mvnrepository.com/artifact/com.jcabi/jcabi-log
+    compile group: 'com.jcabi', name: 'jcabi-log', version: '0.17.2'
+
 
 }
 // end::dependencies[]

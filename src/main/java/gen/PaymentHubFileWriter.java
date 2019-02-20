@@ -37,16 +37,29 @@ public class PaymentHubFileWriter {
 
                 while (rs.next()) {
 
+                    String acctNumber = String.format("%010d",rs.getLong(Constant.SqlField.AcctNumber));
+
                     PaymentHub paymentHub = new PaymentHub();
                     paymentHub.setRecordIndentifer("D");
                     paymentHub.setAcctCtl1(String.format("%04d", 11));
                     paymentHub.setAcctCtl2(String.format("%04d",1));
 //                    rs.getString("ACCT_CRNCY")
                     paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
-                    paymentHub.setAcctCtl4(String.format("%04d",0));
-//                    rs.getInt("ACCT_CTL4"))Account type code
-                    paymentHub.setAcctNumber(String.format("%010d",rs.getLong(Constant.SqlField.AcctNumber)));
+
+                    int acctCtl4 = 0;
+                    switch (acctNumber.substring(3,4)){
+                        case "2":
+                        case "7":
+                        case "9":
+                            acctCtl4 = 200;
+                            break;
+                    }
+                    paymentHub.setAcctCtl4(String.format("%04d",acctCtl4));
+                    logger.debug(acctNumber+" type "+acctNumber.substring(3,4)+" is ACCT_CTL4 = "+paymentHub.getAcctCtl4());
+
+                    paymentHub.setAcctNumber(acctNumber);
                     paymentHub.setAccountProductCode(String.format("%04d",rs.getInt(Constant.SqlField.AccountProductCode)));
+
                     paymentHub.setAvailableBalance(Util.bigDecToStr("%020d",
                                 rs.getBigDecimal(Constant.SqlField.AvailableBalance)));
 //                    paymentHub.setAdditional2(rs.getString("ADDITIONAL2"));

@@ -40,16 +40,12 @@ public class Main {
                 logger.debug("from "+config);
 
                 DateFormat dateFormat = new SimpleDateFormat(prop.getProperty("file.name.dateformat"));
-                String fileName = prop.getProperty("file.name.prefix") +
-                                    dateFormat.format(new Date()) +
-                                    "."+prop.getProperty("file.name.type");
-                logger.debug("File name is "+fileName);
 
-                logger.debug("File format is "+prop.getProperty("file.format"));
-                if (!(fileName.matches(prop.getProperty("file.format")))){
-                    throw new Exception("File Name is not Proper as per Format.");
-                }
-                logger.debug("Match file name format!!");
+
+                String prefix = args[0].equals(Constant.Mode.READ)?
+                        prop.getProperty("download.file.name.prefix"):prop.getProperty("upload.file.name.prefix");
+                String fileName = prefix + dateFormat.format(new Date()) + "."+prop.getProperty("file.name.type");
+                logger.debug("File name is "+fileName);
 
                 logger.debug("Create a StreamFactory ");
                 StreamFactory factory = StreamFactory.newInstance();
@@ -62,9 +58,19 @@ public class Main {
                 logger.info(args[0].toUpperCase() + " File " + fileName);
                 switch (args[0].toLowerCase()) {
                     case Constant.Mode.WRITE:
+                        logger.debug("File format is "+prop.getProperty("upload.file.format"));
+                        if (!(fileName.matches(prop.getProperty("upload.file.format")))){
+                            throw new Exception("File Name is not Proper as per Format.");
+                        }
+                        logger.debug("Match file name format!!");
                         new PaymentHubFileWriter(prop, factory, con, fileName);
                         break;
                     case Constant.Mode.READ:
+                        logger.debug("File format is "+prop.getProperty("download.file.format"));
+                        if (!(fileName.matches(prop.getProperty("download.file.format")))){
+                            throw new Exception("File Name is not Proper as per Format.");
+                        }
+                        logger.debug("Match file name format!!");
                         new PaymentHubFileReader(prop, factory, con, fileName);
                         break;
                     default:

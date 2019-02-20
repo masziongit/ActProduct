@@ -50,9 +50,8 @@ public class Util {
 
     //Test
     public static void main(String[] args) throws Exception{
-        System.out.println("Run other class");
-        String output = String.format("OACSYN%05d.R01",19020711);
-        System.out.printf(output);
+        String acctNumber = String.format("%010d",1751073651);
+        System.out.printf(acctNumber.substring(3,4));
     }
 
 }

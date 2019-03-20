@@ -23,17 +23,20 @@ sftp.ssh.keyfile=nopp
 sftp.ssh.passphrase=
 
 #File
-file.format=OACSYN[0-9]{6}(\\.)R01
-file.name.prefix=OACSYN
 file.name.dateformat=yyMMdd
 file.name.type=R01
+upload.file.format=IACSYN[0-9]{6}(\\.)R01
+upload.file.name.prefix=IACSYN
+download.file.format=OACSYN[0-9]{6}(\\.)R01
+download.file.name.prefix=OACSYN
+
 
 #BeanIO
 mapping.file=mapping.xml
 stream.name=paymenthub
 
 #Log4j
-log.config.file=
+log.config.file=log4j.properties
 ```
 
 Usage command

@@ -4,6 +4,7 @@ import com.jcraft.jsch.*;
 import org.apache.log4j.Logger;
 import util.Constant;
 
+import java.io.File;
 import java.util.Properties;
 
 /**
@@ -14,7 +15,7 @@ public class FileSFTP {
     final static org.apache.log4j.Logger logger = Logger.getLogger(FileSFTP.class);
 
 
-    public FileSFTP(Properties prop, char mode,String fileName) {
+    public FileSFTP(Properties prop, char mode,File file) {
         {
             Session session = null;
             try {
@@ -26,15 +27,16 @@ public class FileSFTP {
                     case Constant.Mode.UPLOAD :
                         logger.info("UploadFile..");
                         logger.debug("to " + prop.getProperty("sftp.upload.path"));
-                        sftpChannel.put(fileName, prop.getProperty("sftp.upload.path")+fileName);
+                        sftpChannel.put(file.getAbsolutePath(), prop.getProperty("sftp.upload.path")+file.getName());
                         logger.info("Upload file complete!!");
                         break;
 
                     case Constant.Mode.DOWNLOAD:
                         logger.info("DownloadFile..");
                         logger.debug("from " + prop.getProperty("sftp.download.path"));
-                        sftpChannel.get(prop.getProperty("sftp.download.path")+fileName,fileName);
+                        sftpChannel.get(prop.getProperty("sftp.download.path")+file.getName(),file.getAbsolutePath());
                         logger.info("Download file complete!!");
+                        break;
                 }
 
                 sftpChannel.exit();

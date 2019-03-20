@@ -32,44 +32,15 @@ public class PaymentHubFileWriter {
 
                 logger.debug("Create local file");
                 File file = new File(fileName);
+                file.getParentFile().mkdirs();
                 logger.debug("Mapping writer file from stream name is "+prop.getProperty("stream.name"));
                 BeanWriter out = factory.createWriter(prop.getProperty("stream.name"), file);
 
                 while (rs.next()) {
-
-                    String acctNumber = String.format("%010d",rs.getLong(Constant.SqlField.AcctNumber));
-
-                    PaymentHub paymentHub = new PaymentHub();
-                    paymentHub.setRecordIndentifer("D");
-                    paymentHub.setAcctCtl1(String.format("%04d", 11));
-                    paymentHub.setAcctCtl2(String.format("%04d",1));
-//                    rs.getString("ACCT_CRNCY")
-                    paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
-
-                    int acctCtl4 = 0;
-                    switch (acctNumber.substring(3,4)){
-                        case "2":
-                        case "7":
-                        case "9":
-                            acctCtl4 = 200;
-                            break;
-                    }
-                    paymentHub.setAcctCtl4(String.format("%04d",acctCtl4));
-                    logger.debug(acctNumber+" type "+acctNumber.substring(3,4)+" is ACCT_CTL4 = "+paymentHub.getAcctCtl4());
-
-                    paymentHub.setAcctNumber(acctNumber);
-                    paymentHub.setAccountProductCode(String.format("%04d",rs.getInt(Constant.SqlField.AccountProductCode)));
-
-                    paymentHub.setAvailableBalance(Util.bigDecToStr("%020d",
-                                rs.getBigDecimal(Constant.SqlField.AvailableBalance)));
-//                    paymentHub.setAdditional2(rs.getString("ADDITIONAL2"));
-//                    paymentHub.setAdditional3(rs.getString("ADDITIONAL3"));
-//                    paymentHub.setAdditional4(rs.getString("ADDITIONAL4"));
-//                    paymentHub.setAdditional5(rs.getString("ADDITIONAL5"));
-//                    paymentHub.setAdditional6(rs.getString("ADDITIONAL6"));
-
-                    // write an Employee object directly to the BeanWriter
-                    out.write(paymentHub);
+                    PaymentHub ph = Util.convertRsToPH(rs);
+                    ph.setAccountProductCode(null);
+                    ph.setAvailableBalance(null);
+                    out.write(ph);
                 }
                 logger.debug("Write record complete!!");
 
@@ -83,17 +54,17 @@ public class PaymentHubFileWriter {
                 out.flush();
                 out.close();
 
-                logger.debug("Write local complete!!");
+                logger.debug("Write file local complete!!");
 
                 try {
-                    new FileSFTP(prop,'U',fileName);
+                    new FileSFTP(prop,'U',file);
 
                 } catch (Exception e) {
                     e.printStackTrace();
                     logger.error(e);
                 }finally {
-                    file.delete();
-                    logger.debug("Remove local file");
+//                    file.delete();
+//                    logger.debug("Remove local file");
                 }
 
             } catch (SQLException e) {

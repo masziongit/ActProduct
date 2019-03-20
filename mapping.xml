@@ -4,10 +4,10 @@
 
     <stream name="paymenthub" format="fixedlength" strict="true">
         <parser>
-            <property name="recordTerminator" value="\n"/>
+            <!--<property name="recordTerminator" value="\n"/>-->
         </parser>
-        <record name="record" class="field.PaymentHub" minOccurs="0" maxOccurs="unbounded" ridLength="151">
-            <field name="recordIndentifer" position="0" length="1" trim="true"/>
+        <record name="record" class="field.PaymentHub" minOccurs="0" maxOccurs="unbounded">
+            <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="D" />
             <field name="acctCtl1" position="1" length="4" trim="true"/>
             <field name="acctCtl2" position="5" length="4" trim="true"/>
             <field name="acctCtl3" position="9" length="4" trim="true"/>
@@ -21,9 +21,9 @@
             <field name="additional5" position="111" length="20" trim="true"/>
             <field name="additional6" position="131" length="20" trim="true"/>
         </record>
-        <record name="trailer" minOccurs="1" maxOccurs="1" class="field.PaymentHubFooter" ridLength="9">
+        <record name="trailer" minOccurs="1" maxOccurs="1" class="field.PaymentHubFooter">
             <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="T"/>
-            <field name="processDate" position="1" length="8" trim="true" format="yyyyMMdd"/>
+            <field name="processDate" position="1" length="unbounded" trim="true" format="yyyyMMdd"/>
         </record>
     </stream>
 

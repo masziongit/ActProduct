@@ -7,6 +7,7 @@ import org.apache.log4j.PropertyConfigurator;
 import org.beanio.StreamFactory;
 import util.Constant;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.text.DateFormat;
@@ -41,7 +42,6 @@ public class Main {
 
                 DateFormat dateFormat = new SimpleDateFormat(prop.getProperty("file.name.dateformat"));
 
-
                 String prefix = args[0].equals(Constant.Mode.READ)?
                         prop.getProperty("download.file.name.prefix"):prop.getProperty("upload.file.name.prefix");
                 String fileName = prefix + dateFormat.format(new Date()) + "."+prop.getProperty("file.name.type");
@@ -55,28 +55,33 @@ public class Main {
                 DbManagement db = new DbManagement(prop);
                 Connection con = db.connection();
 
-                logger.info(args[0].toUpperCase() + " File " + fileName);
-                switch (args[0].toLowerCase()) {
-                    case Constant.Mode.WRITE:
-                        logger.debug("File format is "+prop.getProperty("upload.file.format"));
-                        if (!(fileName.matches(prop.getProperty("upload.file.format")))){
-                            throw new Exception("File Name is not Proper as per Format.");
-                        }
-                        logger.debug("Match file name format!!");
-                        new PaymentHubFileWriter(prop, factory, con, fileName);
-                        break;
-                    case Constant.Mode.READ:
-                        logger.debug("File format is "+prop.getProperty("download.file.format"));
-                        if (!(fileName.matches(prop.getProperty("download.file.format")))){
-                            throw new Exception("File Name is not Proper as per Format.");
-                        }
-                        logger.debug("Match file name format!!");
-                        new PaymentHubFileReader(prop, factory, con, fileName);
-                        break;
-                    default:
-                        usage();
-                        break;
+                if (con != null) {
+                    logger.info(args[0].toUpperCase() + " File " + fileName);
+                    switch (args[0].toLowerCase()) {
+                        case Constant.Mode.WRITE:
+                            logger.debug("File format is " + prop.getProperty("upload.file.format"));
+                            if (!(fileName.matches(prop.getProperty("upload.file.format")))) {
+                                throw new Exception("File Name is not Proper as per Format.");
+                            }
+                            logger.debug("Match file name format!!");
+                            fileName = prop.getProperty("file.upload.path") + fileName;
+                            new PaymentHubFileWriter(prop, factory, con, fileName);
+                            break;
+                        case Constant.Mode.READ:
+                            logger.debug("File format is " + prop.getProperty("download.file.format"));
+                            if (!(fileName.matches(prop.getProperty("download.file.format")))) {
+                                throw new Exception("File Name is not Proper as per Format.");
+                            }
+                            logger.debug("Match file name format!!");
+                            fileName = prop.getProperty("file.download.path") + fileName;
+                            new PaymentHubFileReader(prop, factory, con, fileName);
+                            break;
+                        default:
+                            usage();
+                            break;
+                    }
                 }
+
             } else {
                 usage();
             }

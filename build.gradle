@@ -12,7 +12,7 @@ repositories {
 
 // tag::jar[]
 jar {
-    baseName = 'PaymentHub'
+    baseName = 'ActProduct'
     version =  ''
     manifest {
             attributes 'Implementation-Title': 'Gradle Jar File Example',

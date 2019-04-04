@@ -44,7 +44,7 @@ public class Main {
 
                 String prefix = args[0].equals(Constant.Mode.READ)?
                         prop.getProperty("download.file.name.prefix"):prop.getProperty("upload.file.name.prefix");
-                String fileName = prefix + dateFormat.format(new Date()) + "."+prop.getProperty("file.name.type");
+                String fileName = prefix.trim() + dateFormat.format(new Date()) + "."+prop.getProperty("file.name.type").trim();
                 logger.debug("File name is "+fileName);
 
                 logger.debug("Create a StreamFactory ");
@@ -64,7 +64,7 @@ public class Main {
                                 throw new Exception("File Name is not Proper as per Format.");
                             }
                             logger.debug("Match file name format!!");
-                            fileName = prop.getProperty("file.upload.path") + fileName;
+                            fileName = prop.getProperty("file.upload.path").trim() + fileName;
                             new PaymentHubFileWriter(prop, factory, con, fileName);
                             break;
                         case Constant.Mode.READ:
@@ -94,9 +94,9 @@ public class Main {
 
     private static void usage() {
         System.out.println("Usage command");
-        System.out.println("\tjava -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode} ${fileName}");
+        System.out.println("\tjava -Dconfig.file=${config.properties} -jar ${ActProduct.jar} ${mode} ${fileName}");
         System.out.println("\tUse -Dconfig.file=${config.properties} to get your config");
-        System.out.println("\tUse -jar ${PaymentHub.jar} to get your jarfile to run");
+        System.out.println("\tUse -jar ${ActProduct.jar} to get your jarfile to run");
         System.out.println("\tUse ${mode} to set your mode to run");
         System.out.println("\t\tuse \"write\" to Write data from database to file");
         System.out.println("\t\tuse \"read\" to Read data from to file to database");

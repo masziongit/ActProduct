@@ -1,7 +1,13 @@
 package connect;
 
+import gen.AESCrypt;
 import org.apache.log4j.Logger;
+import sun.misc.BASE64Decoder;
+import util.Constant;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import java.security.Key;
 import java.sql.*;
 import java.util.Properties;
 
@@ -40,12 +46,14 @@ public class DbManagement {
             connection = DriverManager.getConnection(
                     prop.getProperty("db.oracle.url")
                     , prop.getProperty("db.oracle.user")
-                    , prop.getProperty("db.oracle.pass"));
+                    ,decrypt(prop.getProperty("db.oracle.pass")));
 
         } catch (SQLException e) {
             logger.error("Connection Failed! Check output console");
             return null;
 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         if (connection != null) {
@@ -56,4 +64,24 @@ public class DbManagement {
         }
         return null;
     }
+
+
+
+    public String decrypt(String value) throws Exception {
+        Key key = generateKey();
+        Cipher cipher = Cipher.getInstance(Constant.Cryto.ALGORITHM);
+        cipher.init(Cipher.DECRYPT_MODE, key);
+        byte[] decryptedValue64 = new BASE64Decoder().decodeBuffer(value);
+        byte[] decryptedByteValue = cipher.doFinal(decryptedValue64);
+        String decryptedValue = new String(decryptedByteValue, "utf-8");
+        return decryptedValue;
+
+    }
+
+    private  Key generateKey() throws Exception {
+        Key key = new SecretKeySpec(Constant.Cryto.KEY.getBytes(),Constant.Cryto.ALGORITHM);
+        return key;
+    }
+
+
 }

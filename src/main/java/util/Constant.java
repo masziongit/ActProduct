@@ -33,6 +33,13 @@ public final class Constant {
         public static final String Additional6 = "";
     }
 
+    public final class Cryto {
+        public static final String ALGORITHM = "AES";
+        public static final String KEY = "1Hbfh667adfDEJ78";
+    }
+
+
+
     public final class SqlQuery {
 //        //sql query
 //        public static final String SELECT = "SELECT branch_code, scheme_code, acct_bal_amt, acct_crncy, account_id, scheme_type " +

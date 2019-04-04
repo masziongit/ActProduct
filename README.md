@@ -41,6 +41,12 @@ log.config.file=log4j.properties
 
 Usage command
 ---------------
+
+Encrypt password
+```sh
+java -cp ActProduct.jar gen.AESCrypt ${password}
+```
+
 ```sh
 java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode}
 ```

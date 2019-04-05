@@ -8,10 +8,10 @@
         </parser>
         <record name="record" class="field.PaymentHub" minOccurs="0" maxOccurs="unbounded">
             <field name="recordIndentifer" position="0" length="1" trim="true" rid="true" literal="D" />
-            <field name="acctCtl1" position="1" length="4" trim="true"/>
-            <field name="acctCtl2" position="5" length="4" trim="true"/>
-            <field name="acctCtl3" position="9" length="4" trim="true"/>
-            <field name="acctCtl4" position="13" length="4" trim="true"/>
+            <field name="acctCtl1" position="1" length="16" trim="true"/>
+            <!--<field name="acctCtl2" position="5" length="4" trim="true"/>-->
+            <!--<field name="acctCtl3" position="9" length="4" trim="true"/>-->
+            <!--<field name="acctCtl4" position="13" length="4" trim="true"/>-->
             <field name="acctNumber" position="17" length="10" trim="true" />
             <field name="accountProductCode" position="27" length="4" trim="true"  />
             <field name="availableBalance" position="31" length="20" trim="true"  />

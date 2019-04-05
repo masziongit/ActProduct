@@ -46,7 +46,7 @@ Encrypt password
 ```sh
 java -cp ActProduct.jar gen.AESCrypt ${password}
 ```
-
+Run program
 ```sh
 java -Dconfig.file=${config.properties} -jar ${PaymentHub.jar} ${mode}
 ```

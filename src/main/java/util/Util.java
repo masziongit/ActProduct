@@ -5,6 +5,7 @@ import gen.PaymentHubFileWriter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.sql.ResultSet;
@@ -47,20 +48,20 @@ public class Util {
 
         PaymentHub paymentHub = new PaymentHub();
         paymentHub.setRecordIndentifer("D");
-        paymentHub.setAcctCtl1(String.format("%04d", 11));
-        paymentHub.setAcctCtl2(String.format("%04d",1));
-//                    rs.getString("ACCT_CRNCY")
-        paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
+        paymentHub.setAcctCtl1(String.format("%016d",rs.getLong(Constant.SqlField.AcctCtl1)));
 
-        int acctCtl4 = 0;
-        switch (acctNumber.substring(3,4)){
-            case "2":
-            case "7":
-            case "9":
-                acctCtl4 = 200;
-                break;
-        }
-        paymentHub.setAcctCtl4(String.format("%04d",acctCtl4));
+//        paymentHub.setAcctCtl2(String.format("%04d",1));
+//        paymentHub.setAcctCtl3(String.format("%04d", rs.getInt(Constant.SqlField.AcctCtl3)));
+
+//        int acctCtl4 = 0;
+//        switch (acctNumber.substring(3,4)){
+//            case "2":
+//            case "7":
+//            case "9":
+//                acctCtl4 = 200;
+//                break;
+//        }
+//        paymentHub.setAcctCtl4(String.format("%04d",acctCtl4));
 //        logger.debug(acctNumber+" type "+acctNumber.substring(3,4)+" is ACCT_CTL4 = "+paymentHub.getAcctCtl4());
 
         paymentHub.setAcctNumber(acctNumber);
@@ -77,8 +78,14 @@ public class Util {
 //                    paymentHub.setAdditional6(rs.getString("ADDITIONAL6"));
 
         // write an Employee object directly to the BeanWriter
-
-
+        logger.debug("Print Text : "+
+                paymentHub.getRecordIndentifer()+File.separator+
+                paymentHub.getAcctCtl1()+File.separator+
+//                paymentHub.getAcctCtl4()+File.separator+
+                paymentHub.getAcctNumber()+File.separator+
+                paymentHub.getAccountProductCode()+File.separator+
+                paymentHub.getAvailableBalance()
+        );
 
         return paymentHub;
     }

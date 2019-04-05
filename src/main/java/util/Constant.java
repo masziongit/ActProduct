@@ -19,7 +19,7 @@ public final class Constant {
     //sql field
     public final class SqlField {
         public static final String RecordIndentifer = "";
-        public static final String AcctCtl1 = "";
+        public static final String AcctCtl1 = "cntrl_key";
         public static final String AcctCtl2 = "";
         public static final String AcctCtl3 = "branch_code";
         public static final String AcctCtl4 = "";
